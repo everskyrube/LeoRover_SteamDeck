@@ -8,11 +8,48 @@ This project uses the [Steam Deck LCD](https://store.steampowered.com/steamdeck)
 |     2| Manipulator Module|
 |     3| Pan-Tilt-Camera Module|
 
-However, the integration is not yet complete. This documentation includes only the first two modules and is prepared for temporary reference. 
-
 # Demonstration Video
 
 [![Watch the video](https://img.youtube.com/vi/B2zQOKGyBeI/0.jpg)](https://www.youtube.com/watch?v=B2zQOKGyBeI)
+
+
+# Manipulator
+In this project, we have integrated [OpenMANIPULATIR-X](https://emanual.robotis.com/docs/en/platform/openmanipulator_x/overview/) with the Leo Rover. The payload capacity of OpenMANIPULATIR-X is 500 g and it is composed of 5 [Dynamixel XM430-W350](https://emanual.robotis.com/docs/en/dxl/x/xm430-w350/) actuators. The base of the Manipulator is 3D printed for the Leo Rover and the CAD model is available [here]().
+
+## Part List for OpenMANIPULATIR-X
+|  #|  Item| Description| Quantity|
+|-----|-----------|-----------|---------|
+|    1| Open MANIPULATIR-X| Manipulator| 1|
+|    2| U2D2 USB to Serial Adapter| USB communication converter| 1|
+|    3| U2D2 PHB SET| Power Hub Board| 1|
+|    4| DIN912 M5x10mm| Thread Cap Head Screws| 4|
+|    5| Manipulator Base| 3D printed base for the OpenMANIPULATIR-X Manipulator| 1|
+
+
+# Pan Tilt Camera
+The Rover is equipped with the Pan Tilt [ArduCam B0202](https://www.arducam.com/product/arducam-1080p-low-light-wdr-ultra-wide-angle-usb-camera-module-for-computer-2mp-cmos-imx291-160-degree-fisheye-mini-uvc-usb2-0-spy-webcam-board-with-microphone-3-3ft-cable-for-windows-linux-mac-os/) for the improved field of view. The PT camera assembly comprises 2 [Dynamixel XL330-M288](https://emanual.robotis.com/docs/en/dxl/x/xl330-m288/) and some 3D printed parts. Please refer to the following list for all the required parts.
+## Part List for Pan Tilt Camera
+|  #|  Item| Description| Quantity|
+|-----|-----------|-----------|---------|
+|    1| Dynamixel XL330-M288| Smart servo| 2|
+|    2| Arducam B0202| 2MP wide angle low light USB camera| 1|
+|    3| FPX330-H10 Dynamixel| Frame for XL330| 2|
+|    4| FPX330-S102 Dynamixel| Drame for XL330| 2|
+|    5|	DIN912 M2.5x20|	M2.5x20 Socket head bolt|	4|
+|    6|	DIN912 M2x5	|M2x5 socket head bolt|	4|
+|    7|	Tappex 017M2.5|	M2.5 threaded insert|	4|
+|    8|	Base mount|	3D Printed Base of the pan tilt device| 1|
+|    9| Camera housing| 3D Printed Housing for the camera| 1|
+|   10| Camera housing cover| 3D Printed	cover for the camera housing| 1|
+|   11| Camera Lens cap| 3D Printed Lens cap for Arducam UC-684|	1|
+|   12| Cable clip| 3D Printed Cable clip| Optional|
+
+### TODO: Link to CAD Models for 3D printing
+
+# Power Distribution
+The servo motors for the manipulator (Dynamixel XM430-W350) require 12V DC and the servo motors for the Pan Tilt Camera (Dynamixel XL330-M288) require 5V DC. We have used Leo Rover [PowerBox](https://www.leorover.tech/shop/powerbox) for the power distribution. The PowerBox module can be replace by the Leo Rover's right quarter for easy integration.The use of PowerBox is optional and the power can be distributed by using the step down power convertors.
+Refer to the [U2D2 Power hub guide](https://emanual.robotis.com/docs/en/parts/interface/u2d2_power_hub/) for powering up the Dynamixel motors and connecting it to the Raspberry Pi.
+
 
 # Installation
 
@@ -131,5 +168,6 @@ source devel/setup.bash
 roslaunch open_manipulator_teleop open_manipulator_teleop_joystick.launch 
 ```
 You're in! Now, have fun playing with it!
+
 
 ### For the integration with other modules, stay tuned for further updates...
